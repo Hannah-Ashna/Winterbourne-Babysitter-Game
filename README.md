@@ -1,7 +1,7 @@
 # The Winterbourne Babysitter
  The Winterbourne Babysitter is a single-player web-browser-hosted game set in an allegorical fantasy village scene based on the winterbourne chalk streams. The village residents are made up of the whimsical biodiversity that can be found in such a place. Players enter the game as a tiny humanoid dragon, a Kobold, that’s been enlisted to help take care of the villager’s eggs during the drought season. However, when climate change begins to negatively impact the weather conditions, the player must begin to battle against the unpredictability of nature to ensure the community continues to thrive.
  
- <p align = "center"><img src = "https://github.com/Hannah-Ashna/Serious-Games-Project/blob/main/Assets/KarlAnimated.gif" width = "400" height = "400"></p>
+ <p align = "center"><img src = "https://github.com/Hannah-Ashna/Winterbourne-Babysitter/blob/main/Assets/KarlAnimated.gif" width = "400" height = "400"></p>
  
  ### Gameplay Mechanism
  During the non-drought phase of the game, the player needs to gather resources within the limited time available to them. In the early stages of the game, the non-drought phase will be much longer, roughly spanning 16 to 20 in-game days. This is to allow the player enough time to gather these resources on their own. As seen in the figure below, a player can make a single fan in 6 in-game days or a single blanket in 3 in-game days. After the first drought phase is completed, the player unlocks the ability to recruit other villagers to aid them in their mission. For every additional recruit a player gets, they can make an additional item during that time frame (i.e., 2 recruits and a player will be able to make 3 fans in 6 in-game days).  
