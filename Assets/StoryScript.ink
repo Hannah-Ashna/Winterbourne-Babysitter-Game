@@ -13,8 +13,8 @@ Thank you for agreeing to watch over our village eggs - it'll definitely be a re
 ->Tutorial_Options
 
 == Tutorial_Options ==
-* I'm ready! Let's get started. ->Tutorial_Begin 
-* Hmm ... I might need a few more minutes. ->Tutorial_Delay
++ I'm ready! Let's get started. ->Tutorial_Begin 
++ Hmm ... I might need a few more minutes. ->Tutorial_Delay
 
 == Tutorial_Begin ==
 Splendid. To ensure you're well prepared for the upcoming drought, I need you to gather some resources beforehand. You can pick which task you'd like to do first. -> Options_Loop
