@@ -122,6 +122,7 @@ public class DialogueManager : MonoBehaviour
 
         if (currentChoices.Count == 0)
         {
+            UpdateStoryVariables();
             continueButton.gameObject.SetActive(true);
         }
 
@@ -154,6 +155,22 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex) 
     { 
         currentStory.ChooseChoiceIndex(choiceIndex);
+        UpdateStoryVariables();
+        ContinueStory();
+    }
+
+    private void ParseTags()
+    {
+
+        tags = currentStory.currentTags;
+        if (tags.Count > 0)
+        {
+            Debug.Log("hmm");
+        }
+    }
+
+    private void UpdateStoryVariables() 
+    {
         currentStory.ObserveVariable("prep_duration", (variableName, newValue) =>
         {
             timerText.text = "NO DROUGHT:\n" + newValue;
@@ -171,16 +188,5 @@ public class DialogueManager : MonoBehaviour
             inventoryBlanketText.text = newValue + " Blanket(s)";
             inventoryBlanketText.fontSize = 15;
         });
-        ContinueStory();
-    }
-
-    private void ParseTags()
-    {
-
-        tags = currentStory.currentTags;
-        if (tags.Count > 0)
-        {
-            Debug.Log("hmm");
-        }
     }
 }
