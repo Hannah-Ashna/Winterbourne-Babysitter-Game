@@ -30,6 +30,7 @@ Splendid. To ensure you're well prepared for the upcoming drought, I need you to
         + [Let's make some blankets (3 Days)] -> Build_Blankets(->Options_Loop)
        
     - prep_duration == 0:
+        [...Looks like we've run out of time!]
         -> Status_Update
         
     - else:
