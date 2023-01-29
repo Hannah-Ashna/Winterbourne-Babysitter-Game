@@ -19,6 +19,10 @@ Thank you for agreeing to watch over our village eggs - it'll definitely be a re
 == Tutorial_Begin ==
 Splendid. To ensure you're well prepared for the upcoming drought, I need you to gather some resources beforehand. You can pick which task you'd like to do first.
     -> Options_Loop
+    
+== Tutorial_Delay ==
+Ah understandable, it's a big job so I'll wait ... 
+-> Tutorial_Options
 
 == Options_Loop ==
 { 
@@ -39,10 +43,6 @@ Splendid. To ensure you're well prepared for the upcoming drought, I need you to
 == Status_Update ==
 Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s).
 -> END
-
-== Tutorial_Delay ==
-Ah understandable, it's a big job so I'll wait ... 
--> Tutorial_Options
 
 
 == Build_Fans(-> return_to) ==
