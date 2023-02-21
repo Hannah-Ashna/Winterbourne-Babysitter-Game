@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button continueButton;
+    [SerializeField] private Image mayorImage;
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -20,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
 
     [Header("Inventory UI")]
+    [SerializeField] private GameObject playerInventory;
     [SerializeField] private TextMeshProUGUI inventoryFanText;
     [SerializeField] private TextMeshProUGUI inventoryBlanketText;
 
@@ -28,6 +30,9 @@ public class DialogueManager : MonoBehaviour
     private List<string> tags;
     private Story currentStory;
     private bool dialogueIsPlaying;
+    private string typewriterText;
+    private string savedJson;
+    private PlayerInventory playerInventoryScript;
 
     private static DialogueManager instance;
 
@@ -54,6 +59,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         
+        // Setup Inventory Script
+        playerInventoryScript = playerInventory.GetComponent<PlayerInventory>();
 
         // Get the text for all the choices
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -80,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        mayorImage.gameObject.SetActive(true);
 
         ContinueStory();
     }
@@ -88,6 +96,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        mayorImage.gameObject.SetActive(false);
         dialogueText.text = "";
     }
 
@@ -95,9 +104,10 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            StopCoroutine("TypewriterText");
+            typewriterText = currentStory.Continue();
+            StartCoroutine("TypewriterText");
             DisplayChoices();
-
         }
         else
         {
@@ -152,6 +162,17 @@ public class DialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
 
+    private IEnumerator TypewriterText()
+    {
+        dialogueText.text = "";
+
+        foreach (char c in typewriterText)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
     public void MakeChoice(int choiceIndex) 
     { 
         currentStory.ChooseChoiceIndex(choiceIndex);
@@ -181,12 +202,27 @@ public class DialogueManager : MonoBehaviour
         {
             inventoryFanText.text = newValue + " Fan(s)";
             inventoryFanText.fontSize = 15;
+            playerInventoryScript.setFans((int)newValue);
         });
 
         currentStory.ObserveVariable("inventory_blankets", (variableName, newValue) =>
         {
             inventoryBlanketText.text = newValue + " Blanket(s)";
             inventoryBlanketText.fontSize = 15;
+            playerInventoryScript.setBlankets((int)newValue);
+        });
+
+        currentStory.ObserveVariable("show_mayor", (variableName, newValue) =>
+        {
+            if ((bool)newValue)
+            {
+                mayorImage.gameObject.SetActive(true);
+            }
+            else {
+                mayorImage.gameObject.SetActive(false);
+                savedJson = currentStory.state.ToJson();
+                
+            }
         });
     }
 }
