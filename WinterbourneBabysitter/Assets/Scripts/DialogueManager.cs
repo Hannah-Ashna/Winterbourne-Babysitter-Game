@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button continueButton;
     [SerializeField] private Image mayorImage;
+    [SerializeField] private Image backgroundA;
+    [SerializeField] private Image backgroundB;
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -98,6 +101,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         mayorImage.gameObject.SetActive(false);
         dialogueText.text = "";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void ContinueStory()
@@ -222,6 +226,22 @@ public class DialogueManager : MonoBehaviour
                 mayorImage.gameObject.SetActive(false);
                 savedJson = currentStory.state.ToJson();
                 
+            }
+        });
+
+        currentStory.ObserveVariable("nurseryScene", (variableName, newValue) =>
+        {
+            if ((bool)newValue)
+            {
+                if (backgroundA.IsActive())
+                {
+                    backgroundA.gameObject.SetActive(false);
+                    backgroundB.gameObject.SetActive(true);
+                }
+                else {
+                    backgroundA.gameObject.SetActive(true);
+                    backgroundB.gameObject.SetActive(false);
+                }
             }
         });
     }

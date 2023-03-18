@@ -5,6 +5,7 @@ VAR inventory_fans = 0
 VAR inventory_blankets = 0
 VAR helpers = 0
 VAR show_mayor = true
+VAR nurseryScene = false
 
 
 -> Intoduction
@@ -23,6 +24,7 @@ VAR show_mayor = true
     
 == Tutorial_Delay ==
 "Ah understandable, it's a big job so I'll wait ... "
+~ nurseryScene = false
 -> Tutorial_Options
 
 == Options_Loop ==
@@ -42,6 +44,7 @@ VAR show_mayor = true
 == Status_Update ==
 "Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
 "Looks like the drought has begun, I'll show you to the nursery."
+~ nurseryScene = true
 -> Tutorial_Drought_01
 
 
