@@ -28,7 +28,7 @@ public class EggSpawnerScript : MonoBehaviour
         locationTaken = new bool[location.Length]; 
         spawnEggs_LC();
         spawnEggs_VU();
-        //spawnEggs_CR();
+        spawnEggs_CR();
 
     }
 
@@ -59,11 +59,11 @@ public class EggSpawnerScript : MonoBehaviour
     {
         if (Eggs_VU.Length > 0)
         {
-            for (int i = Eggs_LC.Length; i < (Eggs_LC.Length + Eggs_VU.Length) ; i++)
+            for (int i = 0; i < Eggs_VU.Length ; i++)
             {
                 locationTaken[i] = true;
                 Eggs_VU[i] = Instantiate(Eggs_VUPrefab);
-                Eggs_VU[i].transform.position = location[i].transform.position;
+                Eggs_VU[i].transform.position = location[Eggs_LC.Length + i].transform.position;
             }
         }
     }
@@ -72,11 +72,11 @@ public class EggSpawnerScript : MonoBehaviour
     {
         if (Eggs_CR.Length > 0)
         {
-            for (int i = (Eggs_LC.Length + Eggs_VU.Length + 1); i < (Eggs_LC.Length + Eggs_VU.Length + Eggs_CR.Length + 1); i++)
+            for (int i = 0; i < Eggs_CR.Length; i++)
             {
                 locationTaken[i] = true;
                 Eggs_CR[i] = Instantiate(Eggs_CRPrefab);
-                Eggs_CR[i].transform.position = location[i].transform.position;
+                Eggs_CR[i].transform.position = location[Eggs_LC.Length + Eggs_VU.Length + i].transform.position;
             }
         }
     }
