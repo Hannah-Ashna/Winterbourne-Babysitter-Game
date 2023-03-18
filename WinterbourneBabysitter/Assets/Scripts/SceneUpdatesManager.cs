@@ -19,9 +19,16 @@ public class SceneUpdatesManager : MonoBehaviour
     private PlayerInventory inventory;
     private EggSpawnerScript spawner;
 
+    float currentTime;
+    int displayTime;
+    public float startingTime = 225f; 
+
     // Start is called before the first frame update
     void Start()
     {
+        // Start the Countdown!
+        currentTime = startingTime;
+
         try
         {
             // Setup Inventory Script
@@ -45,7 +52,20 @@ public class SceneUpdatesManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        // Handle Timer
+        currentTime -= 1 * Time.deltaTime;
+
+        if (currentTime <= 0)
+        {
+            currentTime = 0;
+            Debug.Log("QUIT");
+        }
+        else {
+            displayTime = (int)currentTime;
+            timerText.text = timerText.text = "DROUGHT:\n" + displayTime.ToString();
+        }
+
         try {
             fans.text = inventory.getFans().ToString() + " Fan(s)";
             blankets.text = inventory.getBlankets().ToString() + " Blanket(s)";

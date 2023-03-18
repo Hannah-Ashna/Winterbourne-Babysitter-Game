@@ -24,7 +24,6 @@ VAR nurseryScene = false
     
 == Tutorial_Delay ==
 "Ah understandable, it's a big job so I'll wait ... "
-~ nurseryScene = false
 -> Tutorial_Options
 
 == Options_Loop ==
@@ -43,8 +42,8 @@ VAR nurseryScene = false
 
 == Status_Update ==
 "Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
+~ nurseryScene = false
 "Looks like the drought has begun, I'll show you to the nursery."
-~ nurseryScene = true
 -> Tutorial_Drought_01
 
 
@@ -75,15 +74,15 @@ VAR nurseryScene = false
 }
 
 == Tutorial_Drought_01 == 
+~ nurseryScene = true
 "So this is the nursery, each egg has its own thermometer ..."
 "... these thermometers will tell you whether an egg is too hot, too cold or perfectly comfortable!"
 "If an egg needs some help, simply click on it and you'll get some options of what you can do"
-"Alright, I'll leave you to it! Good luck, my friend."
-~ show_mayor = false
 -> Tutorial_Drought_02
 
 == Tutorial_Drought_02 ==
-"Here's some extra temporary text to trial out the save and pause FEATURE!"
+"Alright, I'll leave you to it! Good luck, my friend."
+~ show_mayor = false
 -> END
 
 
