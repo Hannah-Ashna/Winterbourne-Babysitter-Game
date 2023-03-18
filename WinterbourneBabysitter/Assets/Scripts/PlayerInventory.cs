@@ -23,6 +23,16 @@ public class PlayerInventory : MonoBehaviour
         blankets = newValue;
     }
 
+    public int getFans()
+    {
+        return fans;
+    }
+
+    public int getBlankets()
+    {
+        return blankets;
+    }
+
     public string useFans() {
         if (fans > 0)
         {
@@ -43,5 +53,10 @@ public class PlayerInventory : MonoBehaviour
         else {
             return "We've run out of blankets!";
         }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 }
