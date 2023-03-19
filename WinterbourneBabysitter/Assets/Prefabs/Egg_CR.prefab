@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 5013697565012376359}
   - component: {fileID: 3657374307712287075}
   - component: {fileID: 1673874463316573291}
+  - component: {fileID: 8256274416219512285}
   m_Layer: 0
   m_Name: Egg_CR
   m_TagString: Untagged
@@ -358,6 +359,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &8256274416219512285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001896299910205418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb60d1ba09b57a643b6b7d5c19f7ed56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thermometerHot: {fileID: 8844780387371907183}
+  thermometerCold: {fileID: 4492595292838553139}
+  thermometerNormal: {fileID: 1301620603371552573}
+  eggDead: {fileID: 5492002992530496471}
+  eggHealing: {fileID: 415384984458182294}
 --- !u!1 &5492002992530496471
 GameObject:
   m_ObjectHideFlags: 0
