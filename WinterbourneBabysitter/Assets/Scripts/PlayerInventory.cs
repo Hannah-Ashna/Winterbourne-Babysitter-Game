@@ -8,6 +8,10 @@ public class PlayerInventory : MonoBehaviour
     public int fans;
     public int blankets;
 
+    public int totalEggs_CR;
+    public int totalEggs_VU;
+    public int totalEggs_LC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +62,23 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
+    }
+
+    public void setVillageEggStatus(int Eggs_LC, int Eggs_VU, int Eggs_CR) {
+        totalEggs_LC= Eggs_LC;
+        totalEggs_VU= Eggs_VU;
+        totalEggs_CR= Eggs_CR;
+    }
+
+    public void updateLC() {
+        totalEggs_LC--;
+    }
+
+    public void updateVU() {
+        totalEggs_VU--;
+    }
+
+    public void updateCR() {
+        totalEggs_CR--;
     }
 }
