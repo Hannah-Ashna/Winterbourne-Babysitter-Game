@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneUpdatesManager : MonoBehaviour
 {
@@ -70,10 +71,14 @@ public class SceneUpdatesManager : MonoBehaviour
             if (totalEggs > 0)
             {
                 // Continue Game
+                setDialogue("Looks like we survived the drought! Time to report back to Mr. Trutta.");
+                inventory.increaseRoundsSurvived();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
             else 
             {
-                // End Game
+                setDialogue("Oh no ... they're all gone!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
         else {

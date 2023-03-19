@@ -7,12 +7,18 @@ public class MainMenuScript : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame() 
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void OpenURL()
+    {
+        // Change link later
+        Application.OpenURL("http://unity3d.com/");
     }
 }

@@ -12,11 +12,14 @@ public class PlayerInventory : MonoBehaviour
     public int totalEggs_VU;
     public int totalEggs_LC;
 
+    public int roundsSurvived;
+
     // Start is called before the first frame update
     void Start()
     {
         fans = 0;
         blankets = 0;
+        roundsSurvived = 0;
     }
 
     public void setFans(int newValue) {
@@ -80,5 +83,9 @@ public class PlayerInventory : MonoBehaviour
 
     public void updateCR() {
         totalEggs_CR--;
+    }
+
+    public void increaseRoundsSurvived() {
+        roundsSurvived++;
     }
 }
