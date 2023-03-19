@@ -54,7 +54,7 @@ public class SceneUpdatesManager : MonoBehaviour
     void Update()
     { 
         // Handle Timer
-        currentTime -= 1 * Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
         if (currentTime <= 0)
         {
@@ -62,7 +62,7 @@ public class SceneUpdatesManager : MonoBehaviour
             Debug.Log("QUIT");
         }
         else {
-            displayTime = (int)currentTime;
+            displayTime = (int)currentTime/15;
             timerText.text = timerText.text = "DROUGHT:\n" + displayTime.ToString();
         }
 
