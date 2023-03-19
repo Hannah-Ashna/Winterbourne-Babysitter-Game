@@ -13,6 +13,9 @@ public class PlayerInventory : MonoBehaviour
     public int totalEggs_LC;
 
     public int roundsSurvived;
+    public int previousRound;
+
+    private int[] parameters;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,8 @@ public class PlayerInventory : MonoBehaviour
         fans = 0;
         blankets = 0;
         roundsSurvived = 0;
+        previousRound = 0;
+        parameters = new int[4];
     }
 
     public void setFans(int newValue) {
@@ -86,6 +91,51 @@ public class PlayerInventory : MonoBehaviour
     }
 
     public void increaseRoundsSurvived() {
+        previousRound = roundsSurvived;
         roundsSurvived++;
+    }
+
+    public int[] getNurseryParameters() {
+
+        switch (roundsSurvived) 
+        {
+            case int rounds when (rounds == 0):
+                parameters[0] = 3;
+                parameters[1] = 1;
+                parameters[2] = 1;
+                parameters[3] = 120;
+                return parameters;
+
+            case int rounds when (rounds >= 1 && rounds <= 3):
+                if (totalEggs_LC > 0) { parameters[0] = Random.Range(3, 6); } else { parameters[0] = 0; }
+                if (totalEggs_VU > 0) { parameters[1] = Random.Range(1, 4); } else { parameters[1] = 0; }
+                if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
+
+                parameters[3] = Random.Range(120, 150);
+                return parameters;
+
+            case int rounds when (rounds >= 4 && rounds <= 8):
+                if (totalEggs_LC > 0) { parameters[0] = Random.Range(3, 6); } else { parameters[0] = 0; }
+                if (totalEggs_VU > 0) { parameters[1] = Random.Range(1, 4); } else { parameters[1] = 0; }
+                if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
+
+                parameters[3] = Random.Range(150, 255);
+                return parameters;
+
+            case int rounds when (rounds >= 9 && rounds <= 15):
+                if (totalEggs_LC > 0) { parameters[0] = Random.Range(3, 6); } else { parameters[0] = 0; }
+                if (totalEggs_VU > 0) { parameters[1] = Random.Range(1, 4); } else { parameters[1] = 0; }
+                if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
+
+                parameters[3] = Random.Range(255, 300);
+                return parameters;
+
+            default:
+                parameters[0] = 5;
+                parameters[1] = 0;
+                parameters[2] = 0;
+                parameters[3] = 5;
+                return parameters;
+        }
     }
 }

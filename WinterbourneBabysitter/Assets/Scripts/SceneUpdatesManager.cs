@@ -27,32 +27,33 @@ public class SceneUpdatesManager : MonoBehaviour
     int displayTime;
     public float startingTime = 225f;
     private int totalEggs;
+    private int[] parameters;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Start the Countdown!
-        currentTime = startingTime;
-        setDialogue("Alright ... let's do this!");
-
         try
         {
             // Setup Inventory Script
             inventory = GameObject.FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>();
+            parameters = inventory.getNurseryParameters();
 
+            // Start the Countdown!
+            currentTime = parameters[3];
+            setDialogue("Alright ... let's do this!");
+
+            // Set Inventory Items
             fans.text = inventory.getFans().ToString() + " Fan(s)";
             blankets.text = inventory.getBlankets().ToString() + " Blanket(s)";
 
             // Set Drought Duration
-            timerText.text = timerText.text = "DROUGHT:\n" + 15;
+            timerText.text = timerText.text = "DROUGHT:\n" + parameters[3];
 
             // Set Number of Eggs to Spawn
             spawner = eggSpawner.GetComponent<EggSpawnerScript>();
-
-            // Need to make more modular???
-            spawner.setEggCount(5, 3, 2);
-            inventory.setVillageEggStatus(5, 3, 2);
-            totalEggs = 10;
+            spawner.setEggCount(parameters[0], parameters[1], parameters[2]);
+            inventory.setVillageEggStatus(parameters[0], parameters[1], parameters[2]);
+            totalEggs = parameters[0] + parameters[1] + parameters[2];
         }
         catch {
 
