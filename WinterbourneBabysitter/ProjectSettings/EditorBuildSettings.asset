@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NurseryScene.unity
     guid: d7b82fdf48a4a6c429d1cfc13cd53f9b
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: ecbeb32534fbcca469fae9df110c7484
   m_configObjects: {}
