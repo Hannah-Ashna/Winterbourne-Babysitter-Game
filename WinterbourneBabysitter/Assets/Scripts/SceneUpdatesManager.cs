@@ -47,7 +47,7 @@ public class SceneUpdatesManager : MonoBehaviour
             blankets.text = inventory.getBlankets().ToString() + " Blanket(s)";
 
             // Set Drought Duration
-            timerText.text = timerText.text = "DROUGHT:\n" + parameters[3];
+            timerText.text = timerText.text = "DROUGHT:\n" + parameters[3] + " Days";
 
             // Set Number of Eggs to Spawn
             spawner = eggSpawner.GetComponent<EggSpawnerScript>();
@@ -84,7 +84,7 @@ public class SceneUpdatesManager : MonoBehaviour
         }
         else {
             displayTime = (int)currentTime/15;
-            timerText.text = timerText.text = "DROUGHT:\n" + displayTime.ToString();
+            timerText.text = timerText.text = "DROUGHT:\n" + displayTime.ToString() + " Days";
         }
 
         try {
