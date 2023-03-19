@@ -21,7 +21,8 @@ public class SceneUpdatesManager : MonoBehaviour
 
     float currentTime;
     int displayTime;
-    public float startingTime = 225f; 
+    public float startingTime = 225f;
+    private int totalEggs;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,11 @@ public class SceneUpdatesManager : MonoBehaviour
 
             // Set Number of Eggs to Spawn
             spawner = eggSpawner.GetComponent<EggSpawnerScript>();
-            spawner.setEggCount(3, 2, 5);
+
+            // Need to make more modular???
+            spawner.setEggCount(5, 3, 2);
+            inventory.setVillageEggStatus(5, 3, 2);
+            totalEggs = 10;
         }
         catch {
 
@@ -58,8 +63,14 @@ public class SceneUpdatesManager : MonoBehaviour
 
         if (currentTime <= 0)
         {
-            currentTime = 0;
-            Debug.Log("QUIT");
+            if (totalEggs > 0)
+            {
+                // Continue Game
+            }
+            else 
+            {
+                // End Game
+            }
         }
         else {
             displayTime = (int)currentTime/15;
@@ -70,5 +81,13 @@ public class SceneUpdatesManager : MonoBehaviour
             fans.text = inventory.getFans().ToString() + " Fan(s)";
             blankets.text = inventory.getBlankets().ToString() + " Blanket(s)";
         } catch { }
+    }
+
+    public int getTime() {
+        return displayTime;
+    }
+
+    public void updateTotalEggs() {
+        totalEggs--;
     }
 }
