@@ -65,7 +65,7 @@ public class EggLC_Script : MonoBehaviour
             {
                 eventProbability = Random.Range(0, 20);
 
-                if (eventProbability >= 17)
+                if (eventProbability >= 18)
                 {
                     dangerType = Random.Range(0, 4);
                     setWarningIcon(dangerType);
