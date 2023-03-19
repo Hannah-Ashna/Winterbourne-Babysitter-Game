@@ -11,6 +11,7 @@ VAR nurseryScene = false
 -> Intoduction
 
 == Intoduction ==
+~ nurseryScene = false
 "Welcome to our village! I'm Mr. Trutta."
 "Thank you for agreeing to watch over our village eggs - it'll definitely be a rewarding job! Ready to dive in? Cause I've got your first task ready for you."
 ->Tutorial_Options
@@ -41,8 +42,8 @@ VAR nurseryScene = false
 }
 
 == Status_Update ==
-"Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
 ~ nurseryScene = false
+"Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
 "Looks like the drought has begun, I'll show you to the nursery."
 -> Tutorial_Drought_01
 
@@ -77,12 +78,12 @@ VAR nurseryScene = false
 ~ nurseryScene = true
 "So this is the nursery, each egg has its own thermometer ..."
 "... these thermometers will tell you whether an egg is too hot, too cold or perfectly comfortable!"
-"If an egg needs some help, simply click on it and you'll get some options of what you can do"
+"If an egg looks like it needs some help, simply walk closer to it and inspect it to figure out what you need do"
 -> Tutorial_Drought_02
 
 == Tutorial_Drought_02 ==
-"Alright, I'll leave you to it! Good luck, my friend."
 ~ show_mayor = false
+"Alright, I'll leave you to it! Good luck, my friend."
 -> END
 
 
