@@ -42,7 +42,7 @@ public class SceneUpdatesManager : MonoBehaviour
 
             // Set Number of Eggs to Spawn
             spawner = eggSpawner.GetComponent<EggSpawnerScript>();
-            spawner.setEggCount(1, 2, 2);
+            spawner.setEggCount(3, 2, 5);
         }
         catch {
 
