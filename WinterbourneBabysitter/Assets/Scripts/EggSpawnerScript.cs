@@ -38,10 +38,10 @@ public class EggSpawnerScript : MonoBehaviour
         
     }
 
-    public void setEggCount(int countCR, int countVU, int countLC) {
-        Eggs_CR = new GameObject[countCR];
-        Eggs_VU = new GameObject[countVU];
+    public void setEggCount(int countLC, int countVU, int countCR) { 
         Eggs_LC = new GameObject[countLC];
+        Eggs_VU = new GameObject[countVU];
+        Eggs_CR = new GameObject[countCR];
     }
 
     void spawnEggs_LC() {
