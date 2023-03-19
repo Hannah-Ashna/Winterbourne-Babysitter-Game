@@ -16,6 +16,9 @@ public class SceneUpdatesManager : MonoBehaviour
     [Header("Egg Spawner")]
     [SerializeField] private GameObject eggSpawner;
 
+    [Header("Player Dialogue")]
+    [SerializeField] private TextMeshProUGUI dialogue;
+
     private PlayerInventory inventory;
     private EggSpawnerScript spawner;
 
@@ -29,6 +32,7 @@ public class SceneUpdatesManager : MonoBehaviour
     {
         // Start the Countdown!
         currentTime = startingTime;
+        setDialogue("Alright ... let's do this!");
 
         try
         {
@@ -89,5 +93,9 @@ public class SceneUpdatesManager : MonoBehaviour
 
     public void updateTotalEggs() {
         totalEggs--;
+    }
+
+    public void setDialogue(string dialogueText) {
+        dialogue.text= dialogueText;
     }
 }
