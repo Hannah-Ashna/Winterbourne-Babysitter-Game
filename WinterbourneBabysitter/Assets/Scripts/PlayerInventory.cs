@@ -11,9 +11,11 @@ public class PlayerInventory : MonoBehaviour
     public int totalEggs_CR;
     public int totalEggs_VU;
     public int totalEggs_LC;
+    public int totalHelpers;
 
     public int roundsSurvived;
     public int previousRound;
+    public int nonDroughtDays;
 
     private int[] parameters;
 
@@ -24,6 +26,7 @@ public class PlayerInventory : MonoBehaviour
         blankets = 0;
         roundsSurvived = 0;
         previousRound = 0;
+        nonDroughtDays = 21;
         parameters = new int[4];
     }
 
@@ -35,14 +38,24 @@ public class PlayerInventory : MonoBehaviour
         blankets = newValue;
     }
 
-    public int getFans()
-    {
+    public void setTotalHelpers(int newValue) { 
+        totalHelpers = newValue;
+    }
+
+    public int getFans() {
         return fans;
     }
 
-    public int getBlankets()
-    {
+    public int getBlankets() {
         return blankets;
+    }
+
+    public int getTotalHelpers() {
+        return totalHelpers;
+    }
+
+    public int getPrepDuration() {
+        return nonDroughtDays;
     }
 
     public string useFans() {
@@ -67,8 +80,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
+    private void Awake(){
         DontDestroyOnLoad(this);
     }
 
@@ -90,6 +102,20 @@ public class PlayerInventory : MonoBehaviour
         totalEggs_CR--;
     }
 
+    public bool isEggLCExtinct() {
+        if (totalEggs_LC == 0) { return true; } else { return false; }
+    }
+
+    public bool isEggVUExtinct()
+    {
+        if (totalEggs_VU == 0) { return true; } else { return false; }
+    }
+
+    public bool isEggCRExtinct()
+    {
+        if (totalEggs_CR == 0) { return true; } else { return false; }
+    }
+
     public void increaseRoundsSurvived() {
         previousRound = roundsSurvived;
         roundsSurvived++;
@@ -104,6 +130,8 @@ public class PlayerInventory : MonoBehaviour
                 parameters[1] = 1;
                 parameters[2] = 1;
                 parameters[3] = 120;
+
+                nonDroughtDays = 18;
                 return parameters;
 
             case int rounds when (rounds >= 1 && rounds <= 3):
@@ -112,6 +140,7 @@ public class PlayerInventory : MonoBehaviour
                 if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
 
                 parameters[3] = Random.Range(120, 150);
+                nonDroughtDays = Random.Range(15, 18);
                 return parameters;
 
             case int rounds when (rounds >= 4 && rounds <= 8):
@@ -120,6 +149,7 @@ public class PlayerInventory : MonoBehaviour
                 if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
 
                 parameters[3] = Random.Range(150, 255);
+                nonDroughtDays = Random.Range(12, 15);
                 return parameters;
 
             case int rounds when (rounds >= 9 && rounds <= 15):
@@ -128,6 +158,7 @@ public class PlayerInventory : MonoBehaviour
                 if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
 
                 parameters[3] = Random.Range(255, 300);
+                nonDroughtDays = Random.Range(6, 12);
                 return parameters;
 
             default:
@@ -135,6 +166,7 @@ public class PlayerInventory : MonoBehaviour
                 parameters[1] = 0;
                 parameters[2] = 0;
                 parameters[3] = 5;
+                nonDroughtDays = 18;
                 return parameters;
         }
     }

@@ -74,12 +74,12 @@ public class SceneUpdatesManager : MonoBehaviour
                 // Continue Game
                 setDialogue("Looks like we survived the drought! Time to report back to Mr. Trutta.");
                 inventory.increaseRoundsSurvived();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else 
             {
                 setDialogue("Oh no ... they're all gone!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
             }
         }
         else {
