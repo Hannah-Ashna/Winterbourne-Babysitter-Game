@@ -12,13 +12,13 @@ VAR egg_CR_extinct = false
 -> Intoduction
 
 == Intoduction ==
-"Welcome back ..." 
+"Welcome back, my friend ..." 
  -> Check_Egg_Status
     
 == Check_Egg_Status ==
 {
     - egg_LC_extinct == false && egg_VU_extinct == false && egg_CR_extinct == false:
-    -> Options_Loop_Support
+    -> Okay_Drought
     - egg_LC_extinct == true && egg_VU_extinct == false && egg_CR_extinct == false:
     -> Extinct_Water_Vole
     - egg_LC_extinct == false && egg_VU_extinct == true && egg_CR_extinct == false:
@@ -87,7 +87,7 @@ VAR egg_CR_extinct = false
 
 == Win_Condition_Check ==
 {
-    - helpers == 5:
+    - helpers == 2:
     -> Win_Condition_Trigger
     - else:
     -> Options_Loop_Inventory
@@ -95,7 +95,7 @@ VAR egg_CR_extinct = false
 
 == Win_Condition_Trigger ==
 "I've got some good news for you!"
-"While you've been busy recruiting and retaining the support of 5 community members..."
+"While you've been busy recruiting and retaining the support of {helpers} community members..."
 "... some researchers caught wind of your work and want to come by and help us build a better nursery now thanks to you!"
 "It'll take some time for Dr. [] and her team to have it built for us so I'll need you to help us out for a little bit longer..."
 "... I'm sure you're up to the challenge!"
@@ -106,6 +106,11 @@ VAR egg_CR_extinct = false
 == Drought_Begin == 
 "Seems like the drought is starting up, you best get to the nursery! We'll speak soon my friend ..."
 -> END
+
+== Okay_Drought ==
+"That drought definitely was a challenge but I see you've persevered! Thank you for doing this ..."
+"Let us not waste time, we should begin preparations for the next drought!"
+-> Options_Loop_Support
 
 == Extinct_Whorl_Snail ==
 "That was a pretty unfortunate drought, I hear the Whorl's egg(s) didn't make it through this time ..."
@@ -130,9 +135,3 @@ VAR egg_CR_extinct = false
 "I'll break the news to the rest of the village."
 "You should look at maybe getting some help with the resource gathering"
 -> Options_Loop_Support
-
-
-
-
-
-

@@ -89,11 +89,11 @@ public class LoopingDialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         mayorImage.gameObject.SetActive(true);
 
-        inventoryBlanketText.text = playerInventoryScript.getBlankets().ToString();
+        inventoryBlanketText.text = playerInventoryScript.getBlankets().ToString() + " Blanket(s)";
         inventoryBlanketText.fontSize = 15;
-        inventoryFanText.text = playerInventoryScript.getFans().ToString();
+        inventoryFanText.text = playerInventoryScript.getFans().ToString() + " Fan(s)";
         inventoryFanText.fontSize = 15;
-        timerText.text = playerInventoryScript.getPrepDuration().ToString();
+        timerText.text = "NO DROUGHT:\n" + playerInventoryScript.getPrepDuration().ToString();
         timerText.fontSize = 14;
 
         // Update Ink Vars
