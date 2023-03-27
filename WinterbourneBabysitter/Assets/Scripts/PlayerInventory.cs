@@ -17,6 +17,9 @@ public class PlayerInventory : MonoBehaviour
     public int previousRound;
     public int nonDroughtDays;
 
+    public bool winConditionActive;
+    public int finalRounds;
+
     private int[] parameters;
 
     // Start is called before the first frame update
@@ -42,6 +45,15 @@ public class PlayerInventory : MonoBehaviour
         totalHelpers = newValue;
     }
 
+    public void setWinConditionActive(bool newValue) { 
+        winConditionActive = newValue;
+    }
+
+    public void setFinalRounds(int newValue)
+    {
+        finalRounds = newValue;
+    }
+
     public int getFans() {
         return fans;
     }
@@ -56,6 +68,11 @@ public class PlayerInventory : MonoBehaviour
 
     public int getPrepDuration() {
         return nonDroughtDays;
+    }
+
+    public int getFinalRounds()
+    {
+        return finalRounds;
     }
 
     public string useFans() {
@@ -106,14 +123,16 @@ public class PlayerInventory : MonoBehaviour
         if (totalEggs_LC == 0) { return true; } else { return false; }
     }
 
-    public bool isEggVUExtinct()
-    {
+    public bool isEggVUExtinct() {
         if (totalEggs_VU == 0) { return true; } else { return false; }
     }
 
-    public bool isEggCRExtinct()
-    {
+    public bool isEggCRExtinct() {
         if (totalEggs_CR == 0) { return true; } else { return false; }
+    }
+
+    public bool getWinConditionActive() {
+        return winConditionActive;
     }
 
     public void increaseRoundsSurvived() {

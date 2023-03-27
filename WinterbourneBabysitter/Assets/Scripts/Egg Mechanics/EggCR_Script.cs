@@ -178,6 +178,7 @@ public class EggCR_Script : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
+            SceneUpdatesManagerScript.setDialogue("...");
         }
     }
 

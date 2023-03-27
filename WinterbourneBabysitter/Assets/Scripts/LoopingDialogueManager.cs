@@ -30,6 +30,7 @@ public class LoopingDialogueManager : MonoBehaviour
 
     private Story currentStory;
     private bool dialogueIsPlaying;
+    private bool finaleActivated;
     private string typewriterText;
     private string savedJson;
     private PlayerInventory playerInventoryScript;
@@ -107,7 +108,12 @@ public class LoopingDialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         mayorImage.gameObject.SetActive(false);
         dialogueText.text = "";
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+        if (finaleActivated) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        } else {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     private void ContinueStory()
@@ -212,9 +218,24 @@ public class LoopingDialogueManager : MonoBehaviour
             playerInventoryScript.setBlankets((int)newValue);
         });
 
+        currentStory.ObserveVariable("win_condition_active", (variableName, newValue) =>
+        {
+            playerInventoryScript.setWinConditionActive((bool)newValue);
+        });
+
         currentStory.ObserveVariable("helpers", (variableName, newValue) =>
         {
             playerInventoryScript.setTotalHelpers((int)newValue);
+        });
+
+        currentStory.ObserveVariable("final_rounds", (variableName, newValue) =>
+        {
+            playerInventoryScript.setFinalRounds((int)newValue);
+        });
+
+        currentStory.ObserveVariable("finale_active", (variableName, newValue) =>
+        {
+            finaleActivated = (bool)newValue;
         });
 
     }
@@ -228,5 +249,7 @@ public class LoopingDialogueManager : MonoBehaviour
         currentStory.variablesState["inventory_blankets"] = playerInventoryScript.getBlankets();
         currentStory.variablesState["helpers"] = playerInventoryScript.getTotalHelpers();
         currentStory.variablesState["prep_duration"] = playerInventoryScript.getPrepDuration();
+        currentStory.variablesState["win_condition_active"] = playerInventoryScript.getWinConditionActive();
+        currentStory.variablesState["final_rounds"] = playerInventoryScript.getFinalRounds();
     }
 }
