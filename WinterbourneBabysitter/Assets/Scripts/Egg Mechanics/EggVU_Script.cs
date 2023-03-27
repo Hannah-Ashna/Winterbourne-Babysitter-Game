@@ -28,7 +28,7 @@ public class EggVU_Script : MonoBehaviour
     private bool isInRange;
 
     // Constants
-    private string normalStatus = "This egg looks comfortable! Maybe I should check on the others.";
+    private string normalStatus = "This egg looks comfortable! Maybe I should check on the others. \n\n [Whorl Snail: This species is Vulnerable]";
     private string hotStatus = "This egg is overheating, I need to cool it down! \n\n[Press F to use a Fan]";
     private string coldStatus = "This egg is freezing, I need to warm it up immediately! \n\n[Press B to use a Blanket]";
     private string deadStatus = "We've lost this egg ... I'll have to break the news to the Mayor ...";

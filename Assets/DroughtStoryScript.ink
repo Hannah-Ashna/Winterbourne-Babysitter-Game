@@ -90,6 +90,7 @@ VAR egg_CR_extinct = false
 -> Win_Condition_Check
 
 == Win_Condition_Check ==
+"..."
 {
     - win_condition_active == true && final_rounds < 1:
         ~ final_rounds = final_rounds + 1
@@ -106,7 +107,7 @@ VAR egg_CR_extinct = false
 "I've got some good news for you!"
 "While you've been busy recruiting and retaining the support of {helpers} community members..."
 "... some researchers caught wind of your work and want to come by and help us build a better nursery now thanks to you!"
-"It'll take some time for Dr. [] and her team to have it built for us so I'll need you to help us out for a little bit longer..."
+"It'll take some time for Prof. Stubbington and her team to have it built for us so I'll need you to help us out for a little bit longer..."
 "... I'm sure you're up to the challenge!"
 ~ win_condition_active = true
 -> Options_Loop_Inventory
@@ -154,7 +155,7 @@ VAR egg_CR_extinct = false
 == Finale ==
 ~ finale_active = true
 "Spectacular work my good friend! I have some wonderful news ...  I've come to relieve you of your duties"
-"I've received news that Dr. [] and her team have finished building the new nursery for us!"
+"I've received news that Prof. Stubbington and her team have finished building the new nursery for us!"
 "Thank you for bringing our community together and helping us get the support we needed ..."
 "I hope many villages like ours will get to benefit from your babysitting expertise in the future!"
 + [Good luck and farewell, Mr. Trutta! ] -> END
