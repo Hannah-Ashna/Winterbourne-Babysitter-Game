@@ -5,6 +5,8 @@ VAR inventory_fans = 0
 VAR inventory_blankets = 0
 VAR helpers = 0
 VAR win_condition_active = false
+VAR finale_active = false
+VAR final_rounds = 0
 VAR egg_LC_extinct = false
 VAR egg_VU_extinct = false
 VAR egg_CR_extinct = false
@@ -56,7 +58,7 @@ VAR egg_CR_extinct = false
 == Build_Fans(-> return_to) ==
 ... Good choice - Fans are always handy to have!
 {
-    - helpers > 0:
+    - helpers > 1:
         ~ inventory_fans = inventory_fans + helpers + 1 
         ~ prep_duration = prep_duration - current_fan_duration 
         -> return_to
@@ -87,10 +89,15 @@ VAR egg_CR_extinct = false
 
 == Win_Condition_Check ==
 {
-    - helpers == 2:
-    -> Win_Condition_Trigger
+    - win_condition_active == true && final_rounds < 2:
+        ~ final_rounds = final_rounds + 1
+        -> Options_Loop_Inventory
+    - win_condition_active == true && final_rounds == 2:
+        -> Finale
+    - win_condition_active == false && helpers == 4:
+        -> Win_Condition_Trigger
     - else:
-    -> Options_Loop_Inventory
+        -> Options_Loop_Inventory
 }
 
 == Win_Condition_Trigger ==
@@ -135,3 +142,12 @@ VAR egg_CR_extinct = false
 "I'll break the news to the rest of the village."
 "You should look at maybe getting some help with the resource gathering"
 -> Options_Loop_Support
+
+== Finale ==
+~ finale_active = true
+"Spectacular work my good friend! I have some wonderful news ...  I've come to relieve you of your duties"
+"I've received news that Dr. [] and her team have finished building the new nursery for us!"
+"Thank you for bringing our community together and helping us get the support we needed ..."
+"I hope many villages like ours will get to benefit from your babysitting expertise in the future!"
++ [Farewell, Mr. Trutta! Good luck with the new nursery] -> END
++ [You're too kind! I'll head off now, thank you Mr. Trutta!] -> END
