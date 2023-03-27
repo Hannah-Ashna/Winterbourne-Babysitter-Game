@@ -27,6 +27,8 @@ VAR egg_CR_extinct = false
     -> Extinct_Whorl_Snail
     - egg_LC_extinct == false && egg_VU_extinct == false && egg_CR_extinct == true:
     -> Extinct_Pearl_Mussel
+    - egg_LC_extinct == true && egg_VU_extinct == true && egg_CR_extinct == true:
+    -> Extinct_All
     - else:
     -> Extinct_Multiple
 }
@@ -34,7 +36,7 @@ VAR egg_CR_extinct = false
     
 == Options_Loop_Support ==
 + [Maybe I should get some help ... (2 Days)] ->Increase_Support
-+ [I'll be fine, it's time to gather resources!] -> Options_Loop_Inventory 
++ [I'll be fine, it's time to gather resources!] -> Win_Condition_Check
 
 
 == Options_Loop_Inventory ==
@@ -89,12 +91,12 @@ VAR egg_CR_extinct = false
 
 == Win_Condition_Check ==
 {
-    - win_condition_active == true && final_rounds < 2:
+    - win_condition_active == true && final_rounds < 1:
         ~ final_rounds = final_rounds + 1
         -> Options_Loop_Inventory
-    - win_condition_active == true && final_rounds == 2:
+    - win_condition_active == true && final_rounds == 1:
         -> Finale
-    - win_condition_active == false && helpers == 4:
+    - win_condition_active == false && helpers == 1:
         -> Win_Condition_Trigger
     - else:
         -> Options_Loop_Inventory
@@ -143,11 +145,17 @@ VAR egg_CR_extinct = false
 "You should look at maybe getting some help with the resource gathering"
 -> Options_Loop_Support
 
+== Extinct_All ==
+"Thank you for your help - but alas, we couldn't fight back against the drought this time"
+"You managed to keep us going for quite a few droughts thought ..."
+"Again, thank you for your time ... perhaps we'll meet again ..."
++ [... goodbye, Mr Trutta ...] -> END
+
 == Finale ==
 ~ finale_active = true
 "Spectacular work my good friend! I have some wonderful news ...  I've come to relieve you of your duties"
 "I've received news that Dr. [] and her team have finished building the new nursery for us!"
 "Thank you for bringing our community together and helping us get the support we needed ..."
 "I hope many villages like ours will get to benefit from your babysitting expertise in the future!"
-+ [Farewell, Mr. Trutta! Good luck with the new nursery] -> END
-+ [You're too kind! I'll head off now, thank you Mr. Trutta!] -> END
++ [Good luck and farewell, Mr. Trutta! ] -> END
++ [You're too kind! Thank you Mr. Trutta!] -> END

@@ -18,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
     public int nonDroughtDays;
 
     public bool winConditionActive;
+    public bool allExtinct;
     public int finalRounds;
 
     private int[] parameters;
@@ -70,6 +71,10 @@ public class PlayerInventory : MonoBehaviour
         return nonDroughtDays;
     }
 
+    public int getRoundsSurvived()
+    {
+        return roundsSurvived;
+    }
     public int getFinalRounds()
     {
         return finalRounds;
@@ -129,6 +134,10 @@ public class PlayerInventory : MonoBehaviour
 
     public bool isEggCRExtinct() {
         if (totalEggs_CR == 0) { return true; } else { return false; }
+    }
+
+    public bool isAllExtinct() {
+        if (isEggLCExtinct() && isEggVUExtinct() && isEggCRExtinct()) { return true; } else { return false; }
     }
 
     public bool getWinConditionActive() {
