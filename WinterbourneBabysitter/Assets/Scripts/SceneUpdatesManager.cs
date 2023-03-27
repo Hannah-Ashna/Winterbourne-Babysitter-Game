@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneUpdatesManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class SceneUpdatesManager : MonoBehaviour
 
     [Header("Timer UI")]
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private Image mask;
 
     [Header("Egg Spawner")]
     [SerializeField] private GameObject eggSpawner;
@@ -29,6 +31,10 @@ public class SceneUpdatesManager : MonoBehaviour
     private int totalEggs;
     private int[] parameters;
 
+    // Progress Bar Variables
+    public int maximumVal;
+    public int currentVal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +46,7 @@ public class SceneUpdatesManager : MonoBehaviour
 
             // Start the Countdown!
             currentTime = parameters[3];
+            maximumVal = (int)currentTime - 12;
             setDialogue("Alright ... let's do this!");
 
             // Set Inventory Items
@@ -67,23 +74,25 @@ public class SceneUpdatesManager : MonoBehaviour
         // Handle Timer
         currentTime -= Time.deltaTime;
 
-        if (currentTime <= 0)
-        {
-            if (totalEggs > 0)
-            {
-                // Continue Game
-                setDialogue("Looks like we survived the drought! Time to report back to Mr. Trutta.");
-                inventory.increaseRoundsSurvived();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            else 
-            {
-                setDialogue("Oh no ... they're all gone!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-            }
+        if (currentTime > 12 && currentTime <= 15) {
+            setDialogue("Time to check back in with Mr. Trutta ...");
+            currentVal = (int)currentTime - 12;
+            displayTime = (int)currentTime / 15;
+            getCurrentFIll();
+            timerText.text = timerText.text = "DROUGHT:\n" + displayTime.ToString() + " Days";
         }
-        else {
-            displayTime = (int)currentTime/15;
+
+        else if (currentTime <= 12)
+        {
+            // Continue Game
+            inventory.increaseRoundsSurvived();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            currentVal = (int)currentTime - 12;
+            displayTime = (int)currentTime / 15;
+            getCurrentFIll();
             timerText.text = timerText.text = "DROUGHT:\n" + displayTime.ToString() + " Days";
         }
 
@@ -103,5 +112,10 @@ public class SceneUpdatesManager : MonoBehaviour
 
     public void setDialogue(string dialogueText) {
         dialogue.text= dialogueText;
+    }
+
+    private void getCurrentFIll() {
+        float fillAmount = (float)currentVal/(float)maximumVal;
+        mask.fillAmount = fillAmount;
     }
 }
