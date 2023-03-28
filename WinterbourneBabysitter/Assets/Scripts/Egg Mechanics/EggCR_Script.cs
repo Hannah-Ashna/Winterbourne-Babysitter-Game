@@ -76,7 +76,7 @@ public class EggCR_Script : MonoBehaviour
                 ++dangerLevel;
 
                 // Check if the Egg has Died
-                if (dangerLevel >= 4 && status != "Dead")
+                if (dangerLevel >= 2 && status != "Dead")
                 {
                     status = "Dead";
                     thermometerHot.SetActive(false);

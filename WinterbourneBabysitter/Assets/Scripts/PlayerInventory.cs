@@ -168,7 +168,7 @@ public class PlayerInventory : MonoBehaviour
                 if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
 
                 parameters[3] = Random.Range(120, 150);
-                nonDroughtDays = Random.Range(15, 18);
+                nonDroughtDays = Random.Range(12, 15);
                 return parameters;
 
             case int rounds when (rounds >= 4 && rounds <= 8):
@@ -177,16 +177,16 @@ public class PlayerInventory : MonoBehaviour
                 if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
 
                 parameters[3] = Random.Range(150, 255);
-                nonDroughtDays = Random.Range(12, 15);
+                nonDroughtDays = Random.Range(6, 12);
                 return parameters;
 
-            case int rounds when (rounds >= 9 && rounds <= 15):
+            case int rounds when (rounds >= 9):
                 if (totalEggs_LC > 0) { parameters[0] = Random.Range(3, 6); } else { parameters[0] = 0; }
                 if (totalEggs_VU > 0) { parameters[1] = Random.Range(1, 4); } else { parameters[1] = 0; }
                 if (totalEggs_CR > 0) { parameters[2] = Random.Range(1, 3); } else { parameters[2] = 0; }
 
                 parameters[3] = Random.Range(255, 300);
-                nonDroughtDays = Random.Range(6, 12);
+                nonDroughtDays = 8;
                 return parameters;
 
             default:
