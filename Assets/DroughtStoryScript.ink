@@ -60,7 +60,7 @@ VAR egg_CR_extinct = false
 == Build_Fans(-> return_to) ==
 ... Good choice - Fans are always handy to have!
 {
-    - helpers > 1:
+    - helpers > 0:
         ~ inventory_fans = inventory_fans + helpers + 1 
         ~ prep_duration = prep_duration - current_fan_duration 
         -> return_to
@@ -97,7 +97,7 @@ VAR egg_CR_extinct = false
         -> Options_Loop_Inventory
     - win_condition_active == true && final_rounds == 1:
         -> Finale
-    - win_condition_active == false && helpers == 1:
+    - win_condition_active == false && helpers == 4:
         -> Win_Condition_Trigger
     - else:
         -> Options_Loop_Inventory

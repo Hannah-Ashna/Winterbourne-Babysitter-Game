@@ -42,7 +42,6 @@ VAR nurseryScene = false
 }
 
 == Status_Update ==
-~ nurseryScene = false
 "Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
 "Looks like the drought has begun, I'll show you to the nursery."
 -> Tutorial_Drought_01
@@ -85,6 +84,3 @@ VAR nurseryScene = false
 ~ show_mayor = false
 "Alright, I'll leave you to it! Good luck, my friend."
 -> END
-
-
-
