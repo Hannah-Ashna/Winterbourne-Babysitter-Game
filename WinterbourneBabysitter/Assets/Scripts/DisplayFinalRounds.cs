@@ -13,6 +13,6 @@ public class DisplayFinalRounds : MonoBehaviour
     void Start()
     {
         PlayerInventory playerInventoryScript = GameObject.FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>();
-        roundsSurvived.text = "ROUNDS SURVIVED: " + playerInventoryScript.getRoundsSurvived();
+        roundsSurvived.text = "Rounds Survived: " + playerInventoryScript.getRoundsSurvived();
     }
 }
