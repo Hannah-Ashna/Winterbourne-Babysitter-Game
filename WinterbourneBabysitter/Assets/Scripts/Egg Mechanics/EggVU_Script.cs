@@ -129,7 +129,6 @@ public class EggVU_Script : MonoBehaviour
                 eggHealing.SetActive(false);
             }
         }
-
     }
 
     private void setWarningIcon(int dangerType) {
