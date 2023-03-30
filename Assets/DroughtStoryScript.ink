@@ -54,7 +54,7 @@ VAR egg_CR_extinct = false
 }
 
 == Status_Update ==
-"Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
+"Wonderful work, looks like you've managed to collect {inventory_fans} fan(s) and {inventory_blankets} blanket(s)."
 -> Drought_Begin
 
 == Build_Fans(-> return_to) ==

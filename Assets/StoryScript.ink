@@ -42,7 +42,7 @@ VAR nurseryScene = false
 }
 
 == Status_Update ==
-"Wonderful work, looks like you've managed to collect <b>{inventory_fans}</b> fan(s) and <b>{inventory_blankets}</b> blanket(s)."
+"Wonderful work, looks like you've managed to collect {inventory_fans} fan(s) and {inventory_blankets} blanket(s)."
 "Looks like the drought has begun, I'll show you to the nursery."
 -> Tutorial_Drought_01
 
