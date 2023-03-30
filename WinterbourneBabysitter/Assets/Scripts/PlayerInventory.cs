@@ -22,6 +22,9 @@ public class PlayerInventory : MonoBehaviour
     public int finalRounds;
 
     private int[] parameters;
+    private bool informedEggs_CR;
+    private bool informedEggs_VU;
+    private bool informedEggs_LC;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,9 @@ public class PlayerInventory : MonoBehaviour
         roundsSurvived = 0;
         previousRound = 0;
         nonDroughtDays = 21;
+        informedEggs_CR= false;
+        informedEggs_VU= false;
+        informedEggs_LC= false;
         parameters = new int[4];
     }
 
@@ -125,19 +131,19 @@ public class PlayerInventory : MonoBehaviour
     }
 
     public bool isEggLCExtinct() {
-        if (totalEggs_LC == 0) { return true; } else { return false; }
+        if (totalEggs_LC == 0 && informedEggs_LC == false) { informedEggs_LC = true; return true; } else { return false; }
     }
 
     public bool isEggVUExtinct() {
-        if (totalEggs_VU == 0) { return true; } else { return false; }
+        if (totalEggs_VU == 0 && informedEggs_VU == false) { informedEggs_VU = true; return true; } else { return false; }
     }
 
     public bool isEggCRExtinct() {
-        if (totalEggs_CR == 0) { return true; } else { return false; }
+        if (totalEggs_CR == 0 && informedEggs_CR == false) { informedEggs_CR = true; return true; } else { return false; }
     }
 
     public bool isAllExtinct() {
-        if (isEggLCExtinct() && isEggVUExtinct() && isEggCRExtinct()) { return true; } else { return false; }
+        if (informedEggs_LC && informedEggs_VU && informedEggs_CR) { return true; } else { return false; }
     }
 
     public bool getWinConditionActive() {

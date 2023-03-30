@@ -244,6 +244,7 @@ public class LoopingDialogueManager : MonoBehaviour
         if (playerInventoryScript.isEggLCExtinct()) { currentStory.variablesState["egg_LC_extinct"] = true; }
         if (playerInventoryScript.isEggVUExtinct()) { currentStory.variablesState["egg_VU_extinct"] = true; }
         if (playerInventoryScript.isEggCRExtinct()) { currentStory.variablesState["egg_CR_extinct"] = true; }
+        if (playerInventoryScript.isAllExtinct()) { currentStory.variablesState["egg_all_extinct"] = true; }
 
         currentStory.variablesState["inventory_fans"] = playerInventoryScript.getFans();
         currentStory.variablesState["inventory_blankets"] = playerInventoryScript.getBlankets();

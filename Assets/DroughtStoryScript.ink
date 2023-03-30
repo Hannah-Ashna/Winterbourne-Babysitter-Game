@@ -10,6 +10,7 @@ VAR final_rounds = 0
 VAR egg_LC_extinct = false
 VAR egg_VU_extinct = false
 VAR egg_CR_extinct = false
+VAR egg_all_extinct = false
 
 -> Intoduction
 
@@ -19,6 +20,8 @@ VAR egg_CR_extinct = false
     
 == Check_Egg_Status ==
 {
+    - egg_all_extinct == true:
+    -> Extinct_All
     - egg_LC_extinct == false && egg_VU_extinct == false && egg_CR_extinct == false:
     -> Okay_Drought
     - egg_LC_extinct == true && egg_VU_extinct == false && egg_CR_extinct == false:
@@ -27,8 +30,6 @@ VAR egg_CR_extinct = false
     -> Extinct_Whorl_Snail
     - egg_LC_extinct == false && egg_VU_extinct == false && egg_CR_extinct == true:
     -> Extinct_Pearl_Mussel
-    - egg_LC_extinct == true && egg_VU_extinct == true && egg_CR_extinct == true:
-    -> Extinct_All
     - else:
     -> Extinct_Multiple
 }
@@ -97,7 +98,7 @@ VAR egg_CR_extinct = false
         -> Options_Loop_Inventory
     - win_condition_active == true && final_rounds == 1:
         -> Finale
-    - win_condition_active == false && helpers == 4:
+    - win_condition_active == false && helpers == 1:
         -> Win_Condition_Trigger
     - else:
         -> Options_Loop_Inventory
