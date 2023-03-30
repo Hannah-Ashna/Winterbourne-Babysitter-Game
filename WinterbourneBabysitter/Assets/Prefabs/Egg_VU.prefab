@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 862657801001162029}
   - component: {fileID: 1696694882424080231}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: healing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 144958409519613671}
   - component: {fileID: 3767667581283727629}
   - component: {fileID: 6649483278088193068}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Egg_VU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3962873657408742092}
   - component: {fileID: 1637687668917092002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1750839190621861234}
   - component: {fileID: 195365266631931476}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170802606432066321}
   - component: {fileID: 2962129923767711381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5353863958746223700}
   - component: {fileID: 5161053418161594752}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

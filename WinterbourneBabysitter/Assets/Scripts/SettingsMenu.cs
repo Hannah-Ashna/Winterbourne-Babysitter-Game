@@ -22,5 +22,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void toggleMenu() {
         menuContainer.SetActive(!menuContainer.activeSelf);
+        
     }
 }
