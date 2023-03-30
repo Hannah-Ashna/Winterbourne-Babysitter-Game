@@ -7,6 +7,25 @@ public class MainMenuScript : MonoBehaviour
 {
     public void PlayGame()
     {
+        try
+        {
+            Destroy(GameObject.Find("PlayerInventory"));
+        }
+        catch
+        {
+
+        }
+        SceneManager.LoadScene(1);
+    }
+
+    public void ReplayGame() {
+        try
+        {
+            Destroy(FindObjectOfType<PlayerInventory>());
+        }
+        catch {
+        
+        }
         SceneManager.LoadScene(1);
     }
 
