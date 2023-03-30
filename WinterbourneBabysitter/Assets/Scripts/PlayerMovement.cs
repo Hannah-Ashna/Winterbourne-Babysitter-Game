@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Player Speed
     public float speed;
+    public Image UIKarlImage;
+    public Sprite[] spriteArray;
+
     private Rigidbody2D playerRB;
     private NavMeshAgent playerNMA;
     private Vector2 velocity;
@@ -46,5 +50,14 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity = velocity * 0;
         target = transform.position;
+
+        if (collision.gameObject.tag == "Egg") {
+            UIKarlImage.sprite = spriteArray[0];
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        UIKarlImage.sprite = spriteArray[1];
     }
 }

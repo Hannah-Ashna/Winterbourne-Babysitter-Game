@@ -1927,6 +1927,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  UIKarlImage: {fileID: 1458860171}
+  spriteArray:
+  - {fileID: 21300000, guid: 09b37dfd31747014bb3616b7d8df8f4a, type: 3}
+  - {fileID: 21300000, guid: 4d7e01c25f07a204eb95f916f73e9580, type: 3}
 --- !u!61 &942228047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3757,7 +3761,7 @@ GameObject:
   - component: {fileID: 1458860171}
   m_Layer: 5
   m_Name: KarlImage
-  m_TagString: Untagged
+  m_TagString: KarlImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
