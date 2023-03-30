@@ -143,9 +143,9 @@ TextureImporter:
       name: NPCSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 500
+        x: 528
         y: 500
-        width: 500
+        width: 472
         height: 500
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -191,7 +191,7 @@ TextureImporter:
         height: 500
       alignment: 9
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 25, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

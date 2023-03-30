@@ -9,11 +9,17 @@ public class UISpriteAnimation : MonoBehaviour
     [SerializeField] private Image spriteImageObj;
     [SerializeField] private Sprite[] spriteArray;
 
-    private float animSpeed = .3f;
+    public float animSpeed = .4f;
 
     private int spriteIndex;
     Coroutine CoroutineAnim;
     bool isAnimating;
+
+    void Start()
+    {
+        isAnimating = true;
+        StartCoroutine(doAnimation());
+    }
 
     public void playUIAnim()
     {
@@ -39,7 +45,5 @@ public class UISpriteAnimation : MonoBehaviour
         if (isAnimating == true)
             StopCoroutine(doAnimation());
             CoroutineAnim = StartCoroutine(doAnimation());
-
-        Debug.Log(spriteIndex);
     }
 }
