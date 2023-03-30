@@ -28,11 +28,11 @@ public class EggLC_Script : MonoBehaviour
     private bool isInRange;
 
     // Constants
-    private string normalStatus = "This egg looks comfortable! Maybe I should check on the others. \n\n [Water Vole: This species isn't Endangered]";
+    private string normalStatus = "This egg looks comfortable! Maybe I should check on the others. \n\n [Blue Featherleg: This species isn't Endangered]";
     private string hotStatus = "This egg is overheating, I need to cool it down! \n\n[Press F to use a Fan]";
     private string coldStatus = "This egg is freezing, I need to warm it up immediately! \n\n[Press B to use a Blanket]";
-    private string deadStatus = "We've lost this egg ... I'll have to break the news to the Mayor ...";
-    private string recoveryStatus = "This egg is recovering, I need to give it some time ...";
+    private string deadStatus = "We've lost this egg ... I'll have to break the news to the Mayor \n\n [Blue Featherleg: This species isn't Endangered]";
+    private string recoveryStatus = "This egg is recovering, I need to give it some time ... \n\n [Blue Featherleg: This species isn't Endangered]";
 
     // Start is called before the first frame update
     void Start()
