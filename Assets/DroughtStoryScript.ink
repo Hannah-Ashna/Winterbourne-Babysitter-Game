@@ -93,13 +93,12 @@ VAR egg_all_extinct = false
 == Win_Condition_Check ==
 "..."
 {
-    - win_condition_active == true && final_rounds < 1:
+    - win_condition_active == true && final_rounds < 2:
         ~ final_rounds = final_rounds + 1
         -> Options_Loop_Inventory
-    - win_condition_active == true && final_rounds == 1:
+    - win_condition_active == true && final_rounds == 2:
         -> Finale
-    - win_condition_active == false && helpers == 2:
-        -> Win_Condition_Trigger
+    - win_condition_active == false && helpers == 4:
     - else:
         -> Options_Loop_Inventory
 }
